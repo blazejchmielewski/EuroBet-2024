@@ -1,0 +1,54 @@
+<div class="content">
+    <div *ngIf="matches && matches.length > 0; else noMatches" class="matches-table">
+        <h1 class="text-center" style="font-weight: bold;">Obstawianie</h1>
+
+        <form [formGroup]="addBetForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="column-lp text-center">L.P</th>
+                        <th class="column-team text-center">Drużyna A</th>
+                        <th class="text-center">Bramki A</th>
+                        <th class="text-center">Bramki B</th>
+                        <th class="column-team text-center">Drużyna B</th>
+                        <th class="column-date text-center">Data</th>
+                        <th class="text-center">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let match of matches; let i = index">
+                        <td class="text-center fw-bold">{{ i + 1 }}</td>
+                        <td class="column-team">
+                            <div class="team-container">
+                                <span class="team-name">{{ match.firstTeamName }}</span>
+                                <img [src]="getFlagUrl(match.firstTeamName)" alt="Flaga {{ match.firstTeamName }}" class="team-flag">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input formControlName="firstTeamGoals" class="form-control input-cell" type="number">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input formControlName="secondTeamGoals" type="number" class="form-control input-cell">
+                            </div>
+                        </td>
+                        <td class="column-team">
+                            <div class="team-container">
+                                <span class="team-name">{{ match.secondTeamName }}</span>
+                                <img [src]="getFlagUrl(match.secondTeamName)" alt="Flaga {{ match.secondTeamName }}" class="team-flag">
+                            </div>
+                        </td>
+                        <td class="column-date text-center fw-bold">{{ match.playDateTime | date:'dd.MM.yyyy, HH:mm' }}</td>
+                        <td><button type="button" class="btn btn-success" (click)="saveMatchGoals(match.id)">Zapisz</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <ng-template #noMatches>
+        <p>Brak dostępnych meczów do wyświetlenia.</p>
+    </ng-template>
+</div>

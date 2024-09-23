@@ -1,0 +1,33 @@
+
+
+
+<div class="content">
+    <div *ngIf="paymentHistory && paymentHistory.length > 0; else noMatches" class="matches-table">
+        <h1 class="text-center" style="font-weight: bold;">Lista Wpłat</h1>
+        <button class="mb-4" mat-raised-button color="primary" (click)="back()">Powrót do panelu użytkowników</button>
+        <table>
+            <thead>
+                <tr>
+                    <th class="column-lp text-center">L.P</th>
+                    <th class="column-team text-center">Imię</th>
+                    <th class="column-team text-center">Nazwisko</th>
+                    <th class="column-result text-center">Kwota</th>
+                    <th class="column-team text-center">Data wpłaty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payment of paymentHistory; let i = index">
+                  <td class="text-center fw-bold">{{ i + 1 }}</td>
+                  <td class="text-center fw-bold">{{payment.firstname}}</td>
+                  <td class="text-center fw-bold">{{payment.lastname}}</td>
+                  <td class="text-center fw-bold">{{payment.payment}}.00 zł</td>
+                  <td class="text-center fw-bold">{{ payment.timestamp | date:'dd.MM.yyyy, HH:mm' }}</td>
+                </tr>
+              </tbody>
+        </table>
+        
+    </div>
+    
+    <ng-template #noMatches>
+        <p>Brak dostępnych meczów do wyświetlenia.</p>
+    </ng-template>

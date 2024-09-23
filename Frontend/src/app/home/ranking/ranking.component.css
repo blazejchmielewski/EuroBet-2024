@@ -1,0 +1,44 @@
+.content {
+    min-height: 630px;
+}
+
+.matches-table {
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody {
+    margin-bottom: 30px;
+}
+
+
+.gold-row {
+    background-color: gold;
+}
+
+.silver-row {
+    background-color: silver;
+}
+
+.bronze-row {
+    background-color: #cd7f32; /* kolor brązowy */
+}
+
+
+
+

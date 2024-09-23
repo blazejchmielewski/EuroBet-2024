@@ -1,0 +1,40 @@
+<div class="content">
+    <div *ngIf="matches && matches.length > 0; else noMatches" class="matches-table">
+        <h1 class="text-center" style="font-weight: bold;">Lista Meczów</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="column-lp text-center">L.P</th>
+                    <th class="column-team text-center">Drużyna A</th>
+                    <th class="column-result text-center">Wynik</th>
+                    <th class="column-team text-center">Drużyna B</th>
+                    <th class="column-date text-center">Data</th>
+                    <th class="column-date text-center">Typowanie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let match of matches; let i = index">
+                  <td class="text-center fw-bold">{{ i + 1 }}</td>
+                  <td>
+                    <div class="team-container">
+                      <span class="team-name">{{ match.firstTeamName }}</span>
+                      <img [src]="getFlagUrl(match.firstTeamName)" alt="Flaga {{ match.firstTeamName }}" class="team-flag">
+                    </div>
+                  </td>
+                  <td class="text-center fw-bold">{{ match.result }}</td>
+                  <td>
+                    <div class="team-container">
+                      <span class="team-name">{{ match.secondTeamName }}</span>
+                      <img [src]="getFlagUrl(match.secondTeamName)" alt="Flaga {{ match.secondTeamName }}" class="team-flag">
+                    </div>
+                  </td>
+                  <td class="text-center fw-bold">{{ match.playDateTime | date:'dd.MM.yyyy, HH:mm' }}</td>
+                  <td class="text-center fw-bold">{{match.type}}</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+
+    <ng-template #noMatches>
+        <p>Brak dostępnych meczów do wyświetlenia.</p>
+    </ng-template>

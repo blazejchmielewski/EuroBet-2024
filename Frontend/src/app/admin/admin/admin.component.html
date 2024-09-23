@@ -1,0 +1,45 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<div class="content">
+    <div class="card-holder">
+        <div class="card">
+            <div class="circle-container user-icon">
+                <img src="../../../assets/user.png">
+            </div>
+            <div class="card-top-content">
+            </div>
+            <div class="card-bottom-content">
+                <h4>Dodaj Uczestnika</h4>
+                <p>Uzupełnij formularz aby dodać konto nowego uczestnika Euro ! Użytkownik otrzyma maila z hasłem i linkiem do logowania</p>
+                <button type="button" class="btn btn-success" (click)="navigateToAddParticipent()">Formularz dodania uczestnika</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle-container edit-icon">
+                <img src="../../../assets/edit.png">
+            </div>
+            <div class="card-top-content">
+            </div>
+            <div class="card-bottom-content">
+                <h4>Edytuj Uczestnika</h4>
+                <p>Podałaś/eś nieprawidłowe dane uzytkownika? Możesz zaktualizować jego dane wypełniając poniższy formularz </p>
+                <button type="button" class="btn btn-success" (click)="navigateToEditUsers()">Sprawdź użytkowników</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle-container permission-icon">
+                <img src="../../../assets/permission.png">
+            </div>
+            <div class="card-top-content">
+            </div>
+            <div class="card-bottom-content">
+                <h4>Dodaj wynik meczu</h4>
+                <p>Wypełnij formularz żeby dodać wynik spotkania. Po jego uzupełnieniu każdy otrzyma maila z rezultatem jego zakładu !</p>
+                <button type="button" class="btn btn-success" (click)="navigateToAddMatchResult()">Uzupełnij wyniki meczów</button>
+            </div>
+        </div>
+    </div>
+</div>

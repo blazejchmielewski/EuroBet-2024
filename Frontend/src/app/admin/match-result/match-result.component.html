@@ -1,0 +1,46 @@
+<div class="content">
+    <div *ngIf="matches && matches.length > 0; else noMatches" class="matches-table">
+        <h1 class="text-center" style="font-weight: bold;">Zapisz wyniki</h1>
+        
+        <form [formGroup]="changeMatchResultForm">
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-center">L.P</th>
+                    <th class="text-center">Drużyna A</th>
+                    <th class="text-center">Bramki A</th>
+                    <th class="text-center">Bramki B</th>
+                    <th class="text-center">Drużyna B</th>
+                    <th class="text-center">Data</th>
+                    <th class="text-center">Akcje</th> <!-- Dodaliśmy nową kolumnę dla przycisków -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let match of matches; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{ match.firstTeamName }}</td>
+                    <td>
+                        <div class="form-group">
+                            <input formControlName="firstTeamGoals" type="number" class="form-control input-cell">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input formControlName="secondTeamGoals" type="number" class="form-control input-cell">
+                        </div>
+                    </td>
+                    <td>{{ match.secondTeamName}}</td>
+                    <td class="team-column">{{ match.playDateTime | date:'dd.MM.yyyy, HH:mm'}}</td>
+                    <td><button type="button" class="btn btn-success" (click)="saveMatchGoals(match.id)">Zapisz</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    
+    </div>
+
+    <ng-template #noMatches>
+        <p>Brak dostępnych meczów do wyświetlenia.</p>
+    </ng-template>
+</div>

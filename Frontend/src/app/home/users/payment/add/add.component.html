@@ -1,0 +1,21 @@
+<!-- edit-user-dialog.component.html -->
+
+<div class="container">
+    <div class="form-wrapper">
+      <h1 class="d-flex justify-content-center">Formularz Płatności</h1>
+      <form [formGroup]="paymentForm" (ngSubmit)="onPayment()"> 
+        <div>
+            <h4 class="text-center">Stan użytkownika: <span class="fw-bold">{{saldo}}.00 zł</span></h4>
+        </div>
+        <mat-form-field appearance="fill" class="form-input">
+          <mat-label>Kwota</mat-label>
+          <input matInput formControlName="amount" type="number">
+        </mat-form-field>
+        <div mat-dialog-actions class="d-flex justify-content-end mb-2 mr-3">
+          <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="warn">Anuluj</button>
+          <button mat-raised-button color="primary" type="submit" (click)="openSnackBar('Pomyślnie Dodano wpłatę','Zamknij')" [disabled]="paymentForm.invalid">Dodaj płatność</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

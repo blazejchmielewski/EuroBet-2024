@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="form-wrapper">
+        <h1 class="d-flex justify-content-center">Formularz Rejestracji</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()"> 
+            <mat-form-field appearance="fill" class="form-input">
+                <mat-label>Imię</mat-label>
+                <input matInput [formControl]="controls.firstname">
+                <mat-error *ngIf='controls.firstname.invalid'>{{ getErrorMessage(controls.firstname) }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-input">
+                <mat-label>Nazwisko</mat-label>
+                <input matInput [formControl]="controls.lastname">
+                <mat-error *ngIf='controls.lastname.invalid'>{{ getErrorMessage(controls.lastname) }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-input">
+                <mat-label>E-mail</mat-label>
+                <input matInput [formControl]="controls.email">
+                <mat-error *ngIf='controls.email.invalid'>{{ getErrorMessage(controls.email) }}</mat-error>
+            </mat-form-field>
+            <h3>Wybierz dział:</h3>
+            <mat-radio-group aria-label="Select an option" [formControl]="controls.department">
+                <mat-radio-button  *ngFor="let department of departments" [value]="department">{{department}}</mat-radio-button>
+              </mat-radio-group>
+            <div class="d-flex justify-content-center mt-3 mb-3">
+                <button mat-raised-button color="primary" type="submit">Zarejestruj</button>
+            </div>
+        </form>
+        <h4 class="d-flex justify-content-center">Masz już konto? Przejdź do&nbsp;<a routerLink="/login">logowania</a></h4>
+    </div>
+</div>
+
+    
+

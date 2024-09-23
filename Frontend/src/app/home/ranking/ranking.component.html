@@ -1,0 +1,27 @@
+<div class="content">
+    <div *ngIf="users && users.length > 0; else noMatches" class="matches-table">
+        <h1 class="text-center" style="font-weight: bold;">RANKING</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">MIEJSCE</th>
+                    <th class="text-center">IMIĘ</th>
+                    <th class="text-center">NAZWISKO</th>
+                    <th class="text-center">PUNKTY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let i = index;" [ngClass]="{ 'gold-row': user.rank === 1, 'silver-row': user.rank === 2, 'bronze-row': user.rank === 3 }">
+                    <td class="text-center">{{user.rank}}</td>
+                    <td class="text-center">{{user.firstname }}</td>
+                    <td class="text-center">{{user.lastname}}</td>
+                    <td class="text-center">{{user.totalPoints}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #noMatches>
+        <p>Brak osób w rankingu</p>
+    </ng-template>
+</div>
