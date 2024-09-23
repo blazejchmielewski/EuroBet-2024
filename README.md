@@ -40,7 +40,7 @@ Hasło i login w pliku application.properties
 
 **4. Frontend (Angular)**:  
 Wejdź w folder, zainstaluj npm i odpal aplikacje  
-`cd Leave-Planner`  
+`cd Euro2024/Frontend`  
 `npm install`  
 `npm serve` 
 
